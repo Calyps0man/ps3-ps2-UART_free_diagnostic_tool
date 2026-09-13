@@ -213,7 +213,7 @@ or to a patched ELF produced from it.
 
 ## Credits:
 
-The base ps2emu version is taken from here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/<br>
+In the release the base ps2emu version is taken from here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/<br>
 
 Original RDRAM testing logic based on PS2's TESTMODE
 
