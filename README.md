@@ -218,7 +218,7 @@ Use the matching SELF template and keys from your own legally obtained system.
 ## Additional information about the code
 
 
-![Unused experimental routines](unused_routines.jpg)
+![Unused experimental routines](Unused_routines.jpg)
 
 
 ## Binary and copyright notice
