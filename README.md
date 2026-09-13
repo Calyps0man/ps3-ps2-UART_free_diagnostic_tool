@@ -227,7 +227,7 @@ or to a patched ELF produced from it.
 
 Original RDRAM testing logic based on PS2's TESTMODE
 
-PS3 integration, channel/range diagnostics and UART output by Calyps0/ChatGPT. 
+PS3 integration and testing - Calyps0/ChatGPT. 
 
 **THE TEST WAS COMPILED WITH AI ASSISTANCE, HOWEVER IT HAS BEEN REVISED NUMEROUS TIMES UNTIL FUNCTIONALITY WAS ACCEPTABLE**
 
