@@ -100,6 +100,45 @@ It does not certify the entire component under every workload. A failed result
 is useful diagnostic evidence, but the surrounding initialization state and
 test limitations must also be considered before declaring a chip defective.
 
+SOME ADDITIONAL NOTES:
+
+The EE+GS must be at least partially functional and powered for this diagnostic to run and appear on screen. The test works around faulty RDRAM; it cannot work around a dead EE+GS processor.
+
+The minimum requirements are:
+
+-EE core powered, clocked, and released from reset — it executes the diagnostic code.
+-EE scratchpad working sufficiently — the diagnostic uses scratchpad for its stack, variables, font-rendering packets, and test state.
+-ROM/firmware path accessible — the modified program must be fetched and executed.
+-GS partially operational — it must accept basic drawing commands and generate video.
+-EE-to-GS/GIF path operational — required to send the text and colour-bar commands.
+-Relevant PS2 subsystem power rails, clocks, and reset logic present.
+-Enough surrounding PS3/PS2 boot infrastructure functioning to reach InitRDRAM.
+
+RDRAM is different because the diagnostic itself is deliberately kept out of RDRAM. Its important code and constant data are in ROM, while temporary state and graphics packets use EE scratchpad. Therefore it can potentially continue after InitRDRAM returns an error and test the damaged RDRAM.
+
+Typical outcomes:
+
+| Fault                                      | Likely result                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------------- |
+| RDRAM initialization fails but EE+GS works | Diagnostic appears; actual negative return and A/B tests are shown        |
+| Some RDRAM locations are faulty            | Diagnostic may appear and report channel errors/failure rates             |
+| EE calculation fault but EE still executes | Possibly `EE: FAIL`                                                       |
+| Scratchpad partly faulty                   | Incorrect display, freeze, or `SPR: FAIL`, depending on the affected area |
+| GS drawing path partly faulty              | Corrupted/missing text or colour bars                                     |
+| GS completely unpowered                    | No usable diagnostic picture                                              |
+| EE completely unpowered or held in reset   | Program does not execute at all                                           |
+| EE clock/power is unstable                 | Freeze, crash, corrupt display, or no screen                              |
+
+
+One subtle point: EE and GS are sections of the same EE+GS package, but a rail or internal fault may affect one section more than another. The fact that you see the diagnostic already proves quite a lot:
+
+-EE is executing code.
+-Scratchpad works well enough to run the interface.
+-GIF commands reach the GS.
+-GS can produce the displayed video and draw text/bars.
+
+It does not prove every EE+GS function, but a completely unpowered EE+GS would produce no test screen at all.
+
 ## Source-code contents
 
 - `build_v59.py` — constructs the ROM-resident diagnostic payload and applies
