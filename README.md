@@ -149,7 +149,7 @@ Typical outcomes:
 ## Source-code contents
 
 - `build_v59.py` — constructs the ROM-resident diagnostic payload and applies
-  the small hooks to a matching V47 ELF.
+  the small hooks to a matching ELF.
 - `verify_v59.py` — instruction-level control-flow/display model with injected
   RDRAM channel failures. It is not a PS3 hardware emulator.
 - `requirements.txt` — Python dependency used for the compact raster font and
