@@ -146,15 +146,6 @@ Typical outcomes:
 | EE clock/power is unstable                 | Freeze, crash, corrupt display, or no screen                              |
 
 
-One subtle point: EE and GS are sections of the same EE+GS package, but a rail or internal fault may affect one section more than another. The fact that you see the diagnostic already proves quite a lot:
-
-- EE is executing code.<br>
-- Scratchpad works well enough to run the interface.<br>
-- GIF commands reach the GS.<br>
-- GS can produce the displayed video and draw text/bars.<br>
-
-It does not prove every EE+GS function, but a completely unpowered EE+GS would produce no test screen at all.
-
 ## Source-code contents
 
 - `build_v59.py` — constructs the ROM-resident diagnostic payload and applies
