@@ -170,7 +170,10 @@ its SHA-256 before using it.
 ## Build
 
 ```bat
-py build_v59.py ps2_emu.elf py build_v59.py ps2_emu.elf "DTL-H30101_USA_Dev_0150_20001228_v4_[CC645DA1].rom0" build
+py -m pip install -r requirements.txt
+```
+```bat
+py build_v59.py ps2_emu.elf "DTL-H30101_USA_Dev_0150_20001228_v4_[CC645DA1].rom0" build
 ```
 
 Expected output:
