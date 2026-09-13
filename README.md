@@ -1,8 +1,7 @@
 # PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
 
-This diagnostic runs inside the PS2 subsystem of a compatible PS3. It preserves
-the real `InitRDRAM` return value and displays the result instead of replacing an
-initialization error with a fake success.
+This diagnostic runs inside the PS2 subsystem of a compatible PS3 (CECHA/B models - or COK-001 boards). 
+Unlike the previous release that only works over UART, this version can display test results without having to solder the adapter to EEGS UART pads.
 
 (Due to many different broken revisions from before, this tool is currently designated as V59 - aka revision 59)
 
@@ -100,9 +99,6 @@ An `OK` result means the specific operation performed by this program passed.
 It does not certify the entire component under every workload. A failed result
 is useful diagnostic evidence, but the surrounding initialization state and
 test limitations must also be considered before declaring a chip defective.
-
-V59 intentionally omits the unreliable DMA, VU0/VU1, GS core, and GS VRAM
-checks rather than showing misleading failures.
 
 ## Source-code contents
 
