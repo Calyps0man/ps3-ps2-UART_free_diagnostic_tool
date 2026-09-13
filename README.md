@@ -186,6 +186,15 @@ SHA-256: 3d76f20447c909ee2878d755470e1b1d9eeeca522d83ce4258b8740631ec802c
 The script verifies every intermediate stage and refuses to produce an output
 if any prerequisite differs.
 
+## Rebuild the SELF
+
+```bat
+scetool.exe -v -0 SELF -1 TRUE -t ps2_emu.self -e build\Calyps0_V59_Stable_EE_Tests.elf ps2_emu_testmode_v59.self
+```
+
+Use the matching SELF template and keys from your own legally obtained system.
+
+
 ## Reconstructed stages
 
 1. Extract the 92,728-byte `TESTMODE` ELF from the supplied PlayStation 2 TEST BIOS.
@@ -205,15 +214,6 @@ if any prerequisite differs.
 - `v59_payload.py` contains the V59 assembler and diagnostic implementation.
 
 - `requirements.txt` lists Pillow, used to generate the compact raster font.
-
-## Rebuild the SELF
-
-```bat
-scetool.exe -v -0 SELF -1 TRUE -t ps2_emu.self -e build\Calyps0_V59_Stable_EE_Tests.elf ps2_emu_testmode_v59.self
-```
-
-Use the matching SELF template and keys from your own legally obtained system.
-
 
 ## Additional information about the code
 
