@@ -197,6 +197,7 @@ if any prerequisite differs.
    `v59_payload.py` and install its hooks.
 5. Verify the completed ELF against the known working V59 SHA-256.
 
+
 ## Source files
 
 - `build_v59.py` performs and verifies the complete staged build.
@@ -212,6 +213,12 @@ scetool.exe -v -0 SELF -1 TRUE -t ps2_emu.self -e build\Calyps0_V59_Stable_EE_Te
 ```
 
 Use the matching SELF template and keys from your own legally obtained system.
+
+
+## Additional information about the code
+
+
+![Unused experimental routines](unused_routines.jpg)
 
 
 ## Binary and copyright notice
