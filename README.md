@@ -106,13 +106,13 @@ The EE+GS must be at least partially functional and powered for this diagnostic 
 
 The minimum requirements are:
 
--EE core powered, clocked, and released from reset — it executes the diagnostic code.
--EE scratchpad working sufficiently — the diagnostic uses scratchpad for its stack, variables, font-rendering packets, and test state.
--ROM/firmware path accessible — the modified program must be fetched and executed.
--GS partially operational — it must accept basic drawing commands and generate video.
--EE-to-GS/GIF path operational — required to send the text and colour-bar commands.
--Relevant PS2 subsystem power rails, clocks, and reset logic present.
--Enough surrounding PS3/PS2 boot infrastructure functioning to reach InitRDRAM.
+-EE core powered, clocked, and released from reset — it executes the diagnostic code.<br>
+-EE scratchpad working sufficiently — the diagnostic uses scratchpad for its stack, variables, font-rendering packets, and test state.<br>
+-ROM/firmware path accessible — the modified program must be fetched and executed.<br>
+-GS partially operational — it must accept basic drawing commands and generate video.<br>
+-EE-to-GS/GIF path operational — required to send the text and colour-bar commands.<br>
+-Relevant PS2 subsystem power rails, clocks, and reset logic present.<br>
+-Enough surrounding PS3/PS2 boot infrastructure functioning to reach InitRDRAM.<br>
 
 RDRAM is different because the diagnostic itself is deliberately kept out of RDRAM. Its important code and constant data are in ROM, while temporary state and graphics packets use EE scratchpad. Therefore it can potentially continue after InitRDRAM returns an error and test the damaged RDRAM.
 
@@ -132,10 +132,10 @@ Typical outcomes:
 
 One subtle point: EE and GS are sections of the same EE+GS package, but a rail or internal fault may affect one section more than another. The fact that you see the diagnostic already proves quite a lot:
 
--EE is executing code.
--Scratchpad works well enough to run the interface.
--GIF commands reach the GS.
--GS can produce the displayed video and draw text/bars.
+-EE is executing code.<br>
+-Scratchpad works well enough to run the interface.<br>
+-GIF commands reach the GS.<br>
+-GS can produce the displayed video and draw text/bars.<br>
 
 It does not prove every EE+GS function, but a completely unpowered EE+GS would produce no test screen at all.
 
