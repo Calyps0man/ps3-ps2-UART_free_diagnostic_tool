@@ -5,7 +5,7 @@ Unlike the previous release that only works over UART, this version can display 
 
 (Due to many different broken revisions from before, this tool is currently designated as V59 - aka revision 59)
 
-![Example Test Window](No_ps2_diagnostic.png)
+![Example Test Window](No_ps2_diagnostic.jpg)
 
 ## What the abbreviations mean
 
