@@ -1,9 +1,11 @@
-# PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
+# Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3 (CECHA/B models - or COK-001 boards). 
 Unlike the previous release that only works over UART, this version can display test results without having to solder the adapter to EEGS UART pads.
 
 (Due to many different broken revisions from before, this tool is currently designated as V59 - aka revision 59)
+
+![Example Test Window](No_ps2_diagnostic.png)
 
 ## What the abbreviations mean
 
@@ -93,12 +95,26 @@ routine. The initialization sequence and its settings are not changed.
 `FAILURE RATE A` and `FAILURE RATE B` are calculated from actual RDRAM data
 mismatches observed during the corresponding channel test.
 
+On COK-001 motherboards, the channels should correspond to:
+
+Channel A	- IC7002 (leftside rdram)<br>
+Channel B	- IC7003 (rightside rdram)<br>
+
+![Channels image](cok_001_channels.jpg)
+
+
 ## Understanding the result
 
 An `OK` result means the specific operation performed by this program passed.
 It does not certify the entire component under every workload. A failed result
 is useful diagnostic evidence, but the surrounding initialization state and
 test limitations must also be considered before declaring a chip defective.
+
+For RDRAM test you can also check some of the return codes through the link here (made by Kozarovv): https://www.psdevwiki.com/ps3/index.php?title=User_talk:Kozarovv&curid=9418&diff=78129&oldid=78114
+
+![Return Codes](InitRDRAM_codes.png)
+
+
 
 SOME ADDITIONAL NOTES:
 
@@ -189,7 +205,23 @@ python verify_v59.py
 ## Binary and copyright notice
 
 This repository intentionally does **not** include a PS2 BIOS, Sony `ps2_emu`
-binary, the V47 base ELF, SCETool keys, or any other proprietary Sony file. The
+binary, the base ELF, SCETool keys, or any other proprietary Sony file. The
 user must legally provide the exact base ELF. The MIT license applies only to
 the original source code and documentation in this package—not to Sony software
 or to a patched ELF produced from it.
+
+
+## Credits:
+
+The base ps2emu version is taken from here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/<br>
+
+Original RDRAM testing logic based on PS2's TESTMODE
+
+PS3 integration, channel/range diagnostics and UART output by Calyps0/ChatGPT. 
+
+**Disclaimer:**
+
+**THE TEST WAS COMPILED WITH AI ASSISTANCE, HOWEVER IT HAS BEEN REVISED NUMEROUS TIMES UNTIL FUNCTIONALY WAS ACCEPTABLE**
+
+**THIS IS AN EXPERIMENTAL REPAIR AND RESEARCH TOOL. USE AT YOUR OWN RISK.**
+
