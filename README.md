@@ -146,34 +146,72 @@ Typical outcomes:
 | EE clock/power is unstable                 | Freeze, crash, corrupt display, or no screen                              |
 
 
-## Source-code contents
 
-- `build_v59.py` — constructs the ROM-resident diagnostic payload and applies
-  the small hooks to a matching ELF.
-- `verify_v59.py` — instruction-level control-flow/display model with injected
-  RDRAM channel failures. It is not a PS3 hardware emulator.
-- `requirements.txt` — Python dependency used for the compact raster font and
-  verification screenshots.
 
-The builder contains some unreachable experimental routine definitions retained
-for exact V59 binary reproducibility. The V59 execution path does not call the
-DMA, VU0/VU1, GS core, or GS VRAM checks.
+
+This package reconstructs the exact hardware-tested
+`Calyps0_V59_Stable_EE_Tests.elf` from two user-supplied Sony files. 
+
+## Required inputs
+
+`ps2_emu.elf` from Kozarovv (found here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/) SHA-256:
+
+```text
+7506392cad6b9c5829c087d9873c0a2b0c3a85b3f1f1bc8289e5939ffd305a7e
+```
+
+PlayStation 2 TEST (DTL-H30101) BIOS 1.50 ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 )`ROM0` SHA-256:
+
+```text
+79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
+```
+
+The builder extracts `TESTMODE` from the TEST BIOS through ROMDIR and verifies
+its SHA-256 before using it.
 
 ## Build
 
-Python 3 is required.
-
-```bash
-python -m pip install -r requirements.txt
-python build_v59.py /path/to/ps2_emu.elf build
+```bat
+py build_v59.py ps2_emu.elf py build_v59.py ps2_emu.elf "DTL-H30101_USA_Dev_0150_20001228_v4_[CC645DA1].rom0" build
 ```
 
-To run the instruction-level checks, copy the generated ELF and `layout.json`
-beside `verify_v59.py`, then run:
+Expected output:
 
-```bash
-python verify_v59.py
+```text
+build/Calyps0_V59_Stable_EE_Tests.elf
+SHA-256: 3d76f20447c909ee2878d755470e1b1d9eeeca522d83ce4258b8740631ec802c
 ```
+
+The script verifies every intermediate stage and refuses to produce an output
+if any prerequisite differs.
+
+## Reconstructed stages
+
+1. Extract the 92,728-byte `TESTMODE` ELF from the supplied PlayStation 2 TEST BIOS.
+2. Replace the embedded retail `OSDSYS` ELF in the original emulator and clear
+   the unused portion of its slot, exactly reproducing Build A.
+3. Apply the documented instruction changes embedded directly in
+   `build_v59.py`
+4. Assemble the readable V59 MIPS diagnostic, font and GS packets from
+   `v59_payload.py` and install its hooks.
+5. Verify the completed ELF against the known working V59 SHA-256.
+
+## Source files
+
+- `build_v59.py` performs and verifies the complete staged build.
+
+- `v59_payload.py` contains the V59 assembler and diagnostic implementation.
+
+- `requirements.txt` lists Pillow, used to generate the compact raster font.
+
+## Rebuild the SELF
+
+```bat
+scetool.exe -v -0 SELF -1 TRUE -t ps2_emu.self -e build\Calyps0_V59_Stable_EE_Tests.elf ps2_emu_testmode_v59.self
+```
+
+Use the matching SELF template and keys from your own legally obtained system.
+
 
 ## Binary and copyright notice
 
