@@ -165,7 +165,7 @@ Python 3 is required.
 
 ```bash
 python -m pip install -r requirements.txt
-python build_v59.py /path/to/ps2_emu_testmode_v47_auto_rdram_colour.elf build
+python build_v59.py /path/to/ps2_emu.elf build
 ```
 
 To run the instruction-level checks, copy the generated ELF and `layout.json`
