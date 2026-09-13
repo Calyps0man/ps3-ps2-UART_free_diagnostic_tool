@@ -1,4 +1,4 @@
-# Calyps0 PS2 Hardware Diagnostic
+# PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3. It preserves
 the real `InitRDRAM` return value and displays the result instead of replacing an
