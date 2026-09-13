@@ -149,10 +149,8 @@ Typical outcomes:
 
 
 
-This package reconstructs the exact hardware-tested
-`Calyps0_V59_Stable_EE_Tests.elf` from two user-supplied Sony files. 
 
-## Required inputs
+## Required inputs for building
 
 `ps2_emu.elf` from Kozarovv (found here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/) SHA-256:
 
