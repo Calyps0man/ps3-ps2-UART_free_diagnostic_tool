@@ -168,24 +168,6 @@ python -m pip install -r requirements.txt
 python build_v59.py /path/to/ps2_emu_testmode_v47_auto_rdram_colour.elf build
 ```
 
-The input ELF must have this SHA-256 value:
-
-```text
-397fa65fd2e1226cda642e08ef64b16dc2f367040021c9b5db455f590bb2ead7
-```
-
-The normal output is:
-
-```text
-build/Calyps0_V59_Stable_EE_Tests.elf
-```
-
-Its expected SHA-256 value is:
-
-```text
-3d76f20447c909ee2878d755470e1b1d9eeeca522d83ce4258b8740631ec802c
-```
-
 To run the instruction-level checks, copy the generated ELF and `layout.json`
 beside `verify_v59.py`, then run:
 
