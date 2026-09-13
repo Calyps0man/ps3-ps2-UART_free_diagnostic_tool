@@ -116,7 +116,7 @@ For RDRAM test you can also check some of the return codes through the link here
 
 
 
-SOME ADDITIONAL NOTES:
+## Additional Notes
 
 The EE+GS must be at least partially functional and powered for this diagnostic to run and appear on screen. The test works around faulty RDRAM; it cannot work around a dead EE+GS processor.
 
@@ -230,7 +230,7 @@ the original source code and documentation in this package—not to Sony softwar
 or to a patched ELF produced from it.
 
 
-## Credits:
+## Credits
 
 Original RDRAM testing logic based on PS2's TESTMODE
 
