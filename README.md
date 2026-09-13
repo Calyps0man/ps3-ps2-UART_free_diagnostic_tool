@@ -1,8 +1,10 @@
-# Calyps0 PS2 Hardware Diagnostic (Referred to as V59 - as in revision 59)
+# Calyps0 PS2 Hardware Diagnostic
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3. It preserves
 the real `InitRDRAM` return value and displays the result instead of replacing an
 initialization error with a fake success.
+
+(Due to many different broken revisions from before, this tool is currently designated as V59 - aka revision 59)
 
 ## What the abbreviations mean
 
