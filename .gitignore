@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+build/
+*.elf
+verification.json
+verification_run.txt
+diagnostic_pass.png
+init_minus9_test_complete.png
