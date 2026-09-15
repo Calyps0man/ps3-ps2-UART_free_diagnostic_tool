@@ -1,6 +1,6 @@
 ## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED) 
 
-**UPDATED on 15.9.2026 (More component tests have been added)**
+### **UPDATED on 15.9.2026 (More component tests have been added)**
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3 (CECHA/B models - or COK-001 boards). 
 Unlike the previous release that only works over UART, this version can display test results 
