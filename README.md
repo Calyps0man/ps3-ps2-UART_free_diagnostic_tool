@@ -228,7 +228,7 @@ Expected SHA-256 for the cleaned-source build:
 The builder verifies the input hashes and intermediate stages and refuses to
 produce an output when a required prerequisite differs.
 
-## Verify the ELF
+## Verify the ELF (not mandatory)
 
 Run:
 
@@ -280,6 +280,6 @@ a patched ELF produced from it.
 
 - NoPS2 integration, iterative hardware testing and project direction:
   **Calyps0**
-- Development and reconstruction performed with AI assistance.
+- Development and reconstruction performed with various AI models.
 
 **This is an experimental repair and research tool. Use it at your own risk.**
