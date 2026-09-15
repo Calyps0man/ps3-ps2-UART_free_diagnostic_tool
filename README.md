@@ -194,7 +194,7 @@ files separately:
 SHA-256: 7506392cad6b9c5829c087d9873c0a2b0c3a85b3f1f1bc8289e5939ffd305a7e
 ```
 
-`TEST_rom0` PlayStation 2 TEST DTL-H30101 BIOS 1.50  ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 )ROM0 SHA-256:
+`TEST_rom0` PlayStation 2 TEST DTL-H30101 BIOS 1.50  ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 ) SHA-256:
 
 ```text
 SHA-256: 79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
