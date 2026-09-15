@@ -1,9 +1,10 @@
-# Calyps0 V68 — NoPS2 Test
+## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
 
 NoPS2 Test is an experimental on-screen diagnostic for the PS2 hardware
 subsystem in early backward-compatible PlayStation 3 consoles, primarily
 CECHA/CECHB models with the COK-001 motherboard. It displays results without
-requiring an adapter soldered to the EE+GS UART pads.
+requiring an adapter soldered to the EE+GS UART pads. 
+(Due to many different broken revisions from before, this tool is currently designated as v68)
 
 
 You can still find RDRAM-only UART version from here:
