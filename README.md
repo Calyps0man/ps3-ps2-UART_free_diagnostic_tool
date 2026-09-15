@@ -90,8 +90,7 @@ A fifth address-uniqueness pass writes each word's address as its value. This
 can reveal address aliasing that fixed data patterns may miss.
 
 The NG rate is calculated from the number of mismatched values observed during
-the corresponding channel test. It is not an estimate or a fabricated health
-percentage.
+the corresponding channel test.
 
 On COK-001 motherboards, the channel labels should correspond to:
 
