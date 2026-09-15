@@ -1,10 +1,16 @@
-## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED)
+## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED) 
+
+**UPDATED on 15.9.2026
+
+**More component tests have been added
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3 (CECHA/B models - or COK-001 boards). 
 Unlike the previous release that only works over UART, this version can display test results 
 without having to solder the adapter to EEGS UART pads.
 
 Alternatively can also still find RDRAM-only UART version from here: https://github.com/Calyps0man/rdram-ps3test
+
+
 
 ![Example diagnostic screen](No_ps2_diagnostic.png)
 
