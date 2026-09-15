@@ -10,7 +10,7 @@ You can still find RDRAM-only UART version from here:
 
 https://github.com/Calyps0man/rdram-ps3test
 
-![Example diagnostic screen](No_ps2_diagnostic.jpg)
+![Example diagnostic screen](No_ps2_diagnostic.png)
 
 
 ## Hardware required for the diagnostic to appear
@@ -186,13 +186,13 @@ Possible outcomes:
 The repository does not include the proprietary Sony binaries. Supply these
 files separately:
 
-### `ps2_emu.elf` from Kozarovv (found here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/) SHA-256:
+`ps2_emu.elf` from Kozarovv (found here - https://www.psx-place.com/resources/release-ps2_emu-gxemu-and-netemu-modded-by-kozarovv-fan-control-cell-rsx-temps-fps-indicator.1680/) SHA-256:
 
 ```text
 SHA-256: 7506392cad6b9c5829c087d9873c0a2b0c3a85b3f1f1bc8289e5939ffd305a7e
 ```
 
-### PlayStation 2 TEST DTL-H30101 BIOS 1.50 `ROM0` ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 )ROM0 SHA-256:
+`TEST_ROM0` PlayStation 2 TEST DTL-H30101 BIOS 1.50  ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 )ROM0 SHA-256:
 
 ```text
 SHA-256: 79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
@@ -285,6 +285,5 @@ a patched ELF produced from it.
 - NoPS2 integration, iterative hardware testing and project direction:
   **Calyps0**
 - Development and reconstruction performed with AI assistance.
-- Original RDRAM test concepts informed by the PS2 TEST diagnostic environment.
 
 **This is an experimental repair and research tool. Use it at your own risk.**
