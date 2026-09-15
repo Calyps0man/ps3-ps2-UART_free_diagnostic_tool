@@ -178,8 +178,7 @@ Possible outcomes:
   execute a timeout handler. The last visible status is then the best available
   indication of where it stopped.
 - Component results can be affected by the unusually early execution stage.
-- `BRIDGE: OK` is not proof that the complete SIF/IOP communication stack has
-  been initialized and verified.
+- `BRIDGE: OK` indicates that the CXD9802GP bridge and the associated EE-to-IOP data path are functional enough to complete this transaction. It does not test every CXD9802GP function or perform a complete initialized SIF protocol test.
 - The screen is deliberately held after testing; the tool does not continue to
   a game or normal PS3 operation.
 
