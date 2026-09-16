@@ -3,7 +3,7 @@
 ### **UPDATED on 15.9.2026**
 - **More component tests have been added**
 - **Source code updated and cleaned**
-- **Read me updated**
+- **Readme updated**
 
 This diagnostic runs inside the PS2 subsystem of a compatible PS3 (CECHA/B models - or COK-001 boards). 
 Unlike the previous release that only works over UART, this version can display test results 
