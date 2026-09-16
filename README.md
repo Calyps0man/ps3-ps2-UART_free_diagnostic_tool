@@ -155,7 +155,7 @@ certifications. `OK` means the operation described above passed; it does not
 prove that every instruction, memory location, timing condition or interface is
 perfect.
 
-Possible outcomes:
+Possible situations:
 
 | Fault | Likely observable result |
 | --- | --- |
