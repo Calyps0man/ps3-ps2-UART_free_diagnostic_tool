@@ -140,8 +140,7 @@ is useful diagnostic evidence, but the surrounding initialization state and
 test limitations must also be considered before declaring a chip defective.
 
 
-
-Possible displayed results include:
+## Possible displayed results include
 
 - `OK` — the specific operation returned the expected result.
 - `FAIL` — a comparison or functional check failed.
@@ -150,11 +149,6 @@ Possible displayed results include:
 - `FAIL MEM` — a tested local memory comparison failed.
 - `FAIL DATA` — a completed transfer returned incorrect data.
 - `N/T` — the test was not executed.
-
-These are targeted functional probes, not exhaustive production
-certifications. `OK` means the operation described above passed; it does not
-prove that every instruction, memory location, timing condition or interface is
-perfect.
 
 Possible situations:
 
