@@ -1,6 +1,13 @@
 ## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED) 
 
-### **UPDATED on 15.9.2026**
+### **17.9.2026 UPDATE**
+- **Bugfix for calculating failed rdram percentages**
+- **Added two different builds for testing**
+- **Source code updated and cleaned**
+- **Readme updated**
+
+
+### **15.9.2026 UPDATE**
 - **More component tests have been added**
 - **Source code updated and cleaned**
 - **Readme updated**
