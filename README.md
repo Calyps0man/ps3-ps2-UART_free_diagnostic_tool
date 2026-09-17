@@ -2,7 +2,7 @@
 
 ### **17.9.2026 UPDATE**
 - **Bugfix for calculating failed rdram percentages**
-- **Added two different builds for testing**
+- **Added a build for forced rdram memory testing**
 - **Source code updated and cleaned**
 - **Readme updated**
 
