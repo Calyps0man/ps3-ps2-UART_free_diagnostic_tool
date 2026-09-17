@@ -212,7 +212,6 @@ SHA-256: 79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
 - `v68_forced_payload.py` — contains the always-sweep variant.
 - `font.bin` — compact raster font used by the on-screen renderer.
 - `verify_v68.py` — optional static verification of the completed ELF.
-- `build_v68_final.bat` — optional Windows build launcher for the selected mode.
 
 ## Build the ELF
 
@@ -223,7 +222,7 @@ You now have two options:
 - Forced Sweep + normal tests. Forces full RDRAM memory sweep (5 passes for each channel) regardless of what internal RDRAM init reports. As it turns out, in some case internal initialisation is not reliable enough when the error percentage is small.
 
 Place the build files and both required input binaries in the same folder, then run a bat file depending on which build you want to create:
-```
+
 
 `build_v68_final.bat`        - creates regular version
 `build_elf_forced_sweep.bat` - creates forced sweep version.
