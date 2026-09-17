@@ -1,10 +1,10 @@
 ## Experimental PS2 Hardware Diagnostic for PS3 (UART NOT REQUIRED) 
 
 ### **17.9.2026 UPDATE**
-- **Bugfix for calculating failed rdram percentages**
-- **Added a build for forced rdram memory testing**
-- **Source code updated and cleaned**
-- **Readme updated**
+- **Bugfix for calculating NG percentages**
+- **Added normal and forced-sweep builds**
+- **Fixed stale Channel B status text**
+- **Source code and build verification updated**
 
 
 ### **15.9.2026 UPDATE**
@@ -17,7 +17,6 @@ Unlike the previous release that only works over UART, this version can display 
 without having to solder the adapter to EEGS UART pads.
 
 Alternatively can also still find RDRAM-only UART version from here: https://github.com/Calyps0man/rdram-ps3test
-
 
 
 ![Example diagnostic screen](No_ps2_diagnostic.png)
@@ -113,6 +112,12 @@ On COK-001 motherboards, the channel labels should correspond to:
 
 These tests run only when the original RDRAM initialization succeeds.
 
+The normal build follows this rule strictly. If initialization fails, or if a
+forced sweep finds any channel mismatch, the component rows remain `N/T`.
+The forced-sweep build runs the memory sweep even when initialization reports
+success, but it still runs component tests only when initialization succeeded
+and both measured channels have zero errors.
+
 | Screen row | Meaning and operation tested |
 | --- | --- |
 | `EE` | **Emotion Engine**, the PS2 main processor. Checks deterministic integer arithmetic, bitwise operations, shifts, multiplication and division against known results. |
@@ -194,7 +199,7 @@ files separately:
 SHA-256: 7506392cad6b9c5829c087d9873c0a2b0c3a85b3f1f1bc8289e5939ffd305a7e
 ```
 
-`TEST_rom0` PlayStation 2 TEST DTL-H30101 BIOS 1.50  ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 ) SHA-256:
+`TEST_rom0` PlayStation 2 TEST DTL-H30101 BIOS 1.50 ( found here - https://archive.org/details/PlayStation2DTLH30101BIOS150 ) SHA-256:
 
 ```text
 SHA-256: 79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
@@ -204,31 +209,41 @@ SHA-256: 79c55576524ee8aae590d85d7581b1b725e6519c427071392e36b3b1f7662856
 
 - `build_v68.py` — validates the inputs and constructs the final ELF.
 - `v68_payload.py` — contains the MIPS assembler and diagnostic implementation.
+- `v68_forced_payload.py` — contains the always-sweep variant.
 - `font.bin` — compact raster font used by the on-screen renderer.
 - `verify_v68.py` — optional static verification of the completed ELF.
-- `build_v68_final.bat` — optional Windows build launcher.
+- `build_v68_final.bat` — optional Windows build launcher for the selected mode.
 
 ## Build the ELF
 
-Place the build files and both required input binaries in the same folder, then
-run:
+You now have two options:
 
-```bat
-py build_v68.py ps2_emu.elf "TEST_rom0" build
+- Normal tests build. Relies on internal RDRAM init. If it is reported "good", the tool does not perform deeper memory passes.
+
+- Forced Sweep + normal tests. Forces full RDRAM memory sweep (5 passes for each channel) regardless of what internal RDRAM init reports. As it turns out, in some case internal initialisation is not reliable enough when the error percentage is small.
+
+Place the build files and both required input binaries in the same folder, then run a bat file depending on which build you want to create:
 ```
 
-Alternatively, double-click `build_v68_final.bat`.
+`build_v68_final.bat`        - creates regular version
+`build_elf_forced_sweep.bat` - creates forced sweep version.
+
 
 Expected output:
 
 ```text
 build\Calyps0_V68_NoPS2_Test.elf
+build\Calyps0_V68_NoPS2_Forced_Sweep_Fixed.elf
 ```
 
-Expected SHA-256 for the cleaned-source build:
+Expected SHA-256 values:
 
 ```text
-2f8c17586b977b1eb0752c8a89abca7985c8f459e54569614a2bf76485d0a581
+Normal:
+2d0904edf22335c965af940c5ad43a7b6184f28ffcc4c712a2f4e44a11d7af73
+
+Forced sweep:
+9ea4c16065b4cc2835c21f9c6a50ba283fea39e198aed15b7d47b6d4ef0a1dd7
 ```
 
 The builder verifies the input hashes and intermediate stages and refuses to
@@ -240,12 +255,15 @@ Run:
 
 ```bat
 py verify_v68.py "build\Calyps0_V68_NoPS2_Test.elf"
+py verify_v68.py "build\Calyps0_V68_NoPS2_Forced_Sweep_Fixed.elf"
 ```
+
+The verifier auto-detects the embedded variant. 
 
 Successful verification ends with:
 
 ```text
-Current V68 payload, display text and control flow verified
+Payload, display text, return preservation and variant control flow verified
 ```
 
 This is static software verification. It confirms the expected file hash,
