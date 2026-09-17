@@ -3,7 +3,7 @@
 ### **17.9.2026 UPDATE**
 - **Bugfix for calculating NG percentages**
 - **Added normal and forced-sweep builds**
-- **Fixed stale Channel B status text**
+- **Fixed stuck Channel B status text**
 - **Source code and build verification updated**
 
 
