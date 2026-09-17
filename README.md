@@ -224,7 +224,7 @@ You now have two options:
 Place the build files and both required input binaries in the same folder, then run a bat file depending on which build you want to create:
 
 
-`build_v68_final.bat`        - creates regular version
+`build_v68_final.bat`        - creates regular version  
 `build_elf_forced_sweep.bat` - creates forced sweep version.
 
 
