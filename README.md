@@ -51,7 +51,7 @@ RDRAM sweep.
 When `InitRDRAM` returns zero or a positive value:
 
 - The actual return value and `RDRAM OK` are displayed.
-- The destructive 32 MiB memory sweep is skipped.
+- The destructive 32 MiB memory sweep is skipped in the normal version ( not skipped in the "forced sweep" version).
 - `CH. A` and `CH. B` display `REPORTED GOOD`.
 - `NG RATE A` and `NG RATE B` display `--`, because the diagnostic did not
   measure a mismatch rate.
